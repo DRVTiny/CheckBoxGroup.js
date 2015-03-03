@@ -9,7 +9,7 @@ var CheckBoxGroup=function (cbgId) {
   cbg.id=cbgId;
   cbg.list=$('#'+cbgId+' :checkbox');
   cbg.dom={};
-  cbg.list.each(function (cb) { cbg['dom'][$(cb).prop('id')]=cb; });
+  cbg.list.each(function () { cbg['dom'][(this.id || this.value)]=this });
   cbg.n=cbg.list.length;
   cbg.n_clear=$.grep(cbg.list,function (x) { return x.checked===false; }).length;
   cbg.all_clear=(cbg.n_clear==cbg.n);
